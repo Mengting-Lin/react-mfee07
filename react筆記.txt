@@ -1,0 +1,6 @@
+開發react專案
+https://create-react-app.dev/docs/getting-started
+
+安裝套件管理工具
+yarn
+https://classic.yarnpkg.com/zh-Hant/docs/install/#windows-stable
