@@ -1,3 +1,93 @@
+React
+ - 用於開發網頁應用程式，也可延伸使用至手機應用(react Native)/伺服器端(Node.js/SSR)
+ - 並不是完整的framework，接近傳統軟體MVC設計模式中的view
+ - 立基於JS，須熟悉ES6語法
+
+React五大特性
+1. Virtual DOM(虛擬DOM)
+ - react中自行管理的DOM結構，用於差異比較後再與真實DOM做渲染
+ - 不會比直接處理DOM更快，只是協助建立可維護的應用程式，而且"足夠快速"的進行DOM處理
+2. JSX
+ - 是JS的語法糖。JS指javascript，X指XML
+ - 是React.createElement的簡寫法，透過babel可編譯為JS讓瀏覽器讀取
+3. 元件化
+4. 單向資料流
+ - 只有父母元件可對子女元件下屬性/變更屬性
+ - 子女元件若欲傳遞資料給父母元件需透過間接方式(較迂迴，但不是不行)
+ - 優：在複雜的程式環境中較易進行除錯、最佳化(雙向資料流則是較易於學習及開發)
+5. 宣告式程式設計(相對於指令式程式設計而言)
+ - 著重於目標，電腦了解目標後採取各項措施完成目標，減少程式的副作用
+
+安裝React開發工具
+1. yarn套件管理工具
+ - 是Facebook最近推出的新專案，目的是提供更快速的套件安裝
+ - 目前在最新版本的React與React Native中都有支援
+ - 可做為npm的輔助工具，開發react專案用
+2. VS code相關擴充工具
+(1) babel javascript --將新版JS語法轉譯為ES5，以利瀏覽器讀取
+(2) prettier --檢測語法錯誤
+(3) rainbow brackets
+(4) ES lint --管理專案用
+(5) vscode-icon
+(6) Chrome debugger
+PS. 修改VSCode使用者設定(選單->喜好設定)：
+(1) 加入下列字串(ESLint與Prettier)
+"editor.formatOnSave": true,
+    "[javascript]": {
+        "editor.formatOnSave": false
+    },
+    "prettier.disableLanguages": [
+        "js"
+    ],
+    "eslint.alwaysShowStatus": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
+(2)右下角CRLF(for MAC)調整為LF(for Window)
+3. Chrome瀏覽器擴充功能
+(1) React Developer Tools
+ - 主要是用來除錯用的，可觀察React應用程式在網頁上執行的一些資訊 (Ctrl+Shit+I > Component)
+(2) Redux DevTools
+
+React開發新專案
+1. 終端機輸入指令安裝create-react-app工具程式
+npm install -g create-react-app
+2. 切換到新專案資料夾再輸入指令
+npx create-react-app my-app 
+(npx為npm的子項目，安裝管理項目用)
+(my-app為專案資料夾名稱)
+3. 安裝ESLint與Prettier模組
+(下列yarn/npm終端機指令，二擇一)
+yarn add eslint-plugin-prettier prettier eslint-config-react-app eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y eslint-plugin-react-hooks
+npm install --save-dev eslint-plugin-prettier prettier eslint-config-react-app eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y eslint-plugin-react-hooks
+4. 拷貝下列三個設定檔，放入專案根目錄中
+(1) .eslintrc
+(2) .eslintignore
+(3) .prettierrc
+
+PS. create-react-app這個樣版文件，把所有的設定文件都藏在node_modules/react-scripts之中
+PS. package.json中"scrpits"可查看指令
+(1) "start"：啟動專案
+(2) "build"：打包專案(含public&src資料夾中檔案)
+(3) "eject"：彈出(可以把所有的設定值移出到根目錄之中，這是一次性的指令)
+
+React Component
+1. Functional Component (函式型元件)
+ - 優：可以進行比較複雜的操作和元件生命週期的控制    
+ - 缺：若不熟悉hook用法，容易出錯 / 相對於stateless components耗費資源
+2. Class Component (類別型元件)
+ - 單純地 render UI 的 stateless components，沒有內部狀態、沒有實作物件和 ref，沒有生命週期函數
+ - 相對少用，但常應用於react Native(手機開發)
+ - 優：若非需要控制生命週期的話建議使用，能獲得比較好的效能
+
+React
+(1) state：狀態
+ - 元件中自行控管的內部資料
+ - 只能在元件內部存取與更動，無法在不同元件間直接存取使用s
+ - setState是改變state物件值的方法
+(2) props：屬性(properties)
+ - 是個物件
+
 開發react專案
 https://create-react-app.dev/docs/getting-started
 
