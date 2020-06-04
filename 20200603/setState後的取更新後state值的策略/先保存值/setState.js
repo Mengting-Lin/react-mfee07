@@ -1,8 +1,8 @@
 import React from 'react'
 
 class SelectBox extends React.Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = { value: '' }
   }
 
@@ -11,13 +11,13 @@ class SelectBox extends React.Component {
   // 方法1：setState後的取更新後state值的策略-先保存值
   // -->建議作法，於function Component和class component兩種皆可適用
 
-  handleChange = (value) => {
+  handleChange = (event) => {
       const value = event.target.value
       //當屬性與變數相同時，可簡寫為{value}
       this.setState({value:value})
         // this.setState({value})
         // this.setState({;})
-      console.log(value);      
+      console.log(value)      
   }
 
 
@@ -32,8 +32,6 @@ class SelectBox extends React.Component {
     //   console.log('after setState', this.state.value)     
     // }
 
-}
-
   render() {
     return (
       <>
@@ -47,5 +45,6 @@ class SelectBox extends React.Component {
       </>
     )
   }
+}
 
-export default App
+export default SelectBox

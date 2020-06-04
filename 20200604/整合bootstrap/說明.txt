@@ -1,0 +1,15 @@
+SASS/SCSS - CRA+Bootstrap4搭配使用
+https://github.com/eyesofkids/201/issues/15
+
+查看bootstrap預設樣式文件：node_modules資料夾 > bootstrap資料夾 
+ex. 
+_variables.scss中可看到主色系預設為$primary
+
+修改bootstrap預設樣式文件：src資料夾 > styles資料夾 > custom.scss
+覆蓋變數需要在導入Bootstrap的Scss檔案之前
+ex.
+$primary: black;
+
+React Bootstrap使用說明
+https://github.com/eyesofkids/201/blob/master/data/0604/react-boostrap.md
+

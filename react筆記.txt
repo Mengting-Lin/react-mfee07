@@ -94,3 +94,61 @@ https://create-react-app.dev/docs/getting-started
 安裝套件管理工具
 yarn
 https://classic.yarnpkg.com/zh-Hant/docs/install/#windows-stable
+
+*
+ref-->傳址
+key
+不屬於props
+
+jQuery整合React基本步驟
+https://github.com/eyesofkids/201/issues/11
+1. 安裝jquery模組
+npm install jquery
+yarn add jquery
+2. 導入jquery模組
+import $ from 'jquery'
+3.程式碼寫於componentDidMount中
+componentDidMount() {
+    //jquery的程式碼需要寫在這裡，確保dom元素已經出現在網頁上
+  }
+
+
+SASS/SCSS - CRA+Bootstrap4搭配使用
+https://github.com/eyesofkids/201/issues/15
+https://github.com/eyesofkids/201/blob/master/data/0604/scss-200310.md
+https://sass-lang.com/documentation
+https://www.sassmeister.com/
+安裝ruby
+https://rubyinstaller.org/downloads/
+cmd 
+> gem install sass
+
+
+將HTML碼轉成JSX語法注意事項(bootstrap)(JSX比HTML更嚴格)(幾乎所有HTML都可轉換成JSX)
+https://github.com/eyesofkids/201/issues/10
+1. 自行結尾的標記(單一行)的結尾必須要是/> - 最常見input, img, hr, br，例如<br>要改成<br />
+2. class要換成className
+3. for要換成htmlFor
+4. style要變成Javascript的物件值(雙花括號)：<span style={{color:'red'}}>ABC</span>
+
+只要有用到JSX語法就要匯入react
+import React form 'react'
+因為JSX是react中createElement的簡寫法
+
+ref-->鉤子useRef
+https://zh-hant.reactjs.org/docs/hooks-reference.html
+
+react-reveal
+https://www.react-reveal.com/examples/
+
+react-icon
+https://react-icons.github.io/
+
+Scroll(捲動)或動作後動畫第三方函式庫參考
+https://github.com/eyesofkids/201/issues/18
+跳出視窗的React第三方函式庫
+https://github.com/eyesofkids/201/issues/19
+
+
+todo list 
+http://todomvc.com/examples/react/#/
