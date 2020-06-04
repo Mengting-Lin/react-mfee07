@@ -1,4 +1,4 @@
-  import React, { useState } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 function MyDisplay(props) {
@@ -13,11 +13,6 @@ function MyDisplay(props) {
 
 MyDisplay.propTypes = {
   text: PropTypes.string.isRequired,
-}
-
-// Specifies the default values for props:
-MyDisplay.defaultProps = {
-  text: '沒給值',
 }
 
 export default MyDisplay

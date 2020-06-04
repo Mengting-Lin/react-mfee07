@@ -4,10 +4,12 @@
 import React, { useState } from 'react'
 
 function MyTextInput(props) {
+  // 解構賦值
+  const { value, onChange } = props
 
   return (
     <>
-      <input type="text" value={props.value} onChange={props.onChange} />
+      <input type="text" value={value} onChange={onChange} />
       {/* 相當於以下的語法 */}
       {/* <input type="text" {...props} /> */}
     </>

@@ -1,6 +1,3 @@
-
-// 子女元件-->傳送資料至父母元件
-
 import React, { useState } from 'react'
 
 function MyTextInput() {

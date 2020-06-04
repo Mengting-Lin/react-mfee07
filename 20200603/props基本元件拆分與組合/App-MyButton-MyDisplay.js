@@ -4,7 +4,7 @@ import MyDisplay from './components/MyDisplay'
 // 匯入MyButton.js
 import MyButton from './components/MyButton'
 
-function App1() {
+function App() {
   const [total, setTotal] = useState(0)
 
   return (
@@ -20,7 +20,7 @@ function App1() {
           setTotal(total + 1)
         }}/>
         {/* JSX結構寫法2 */}
-      <MyButtonDec
+      <MyButtonDec title="-1"
         onClick={() => {
           setTotal(total - 1)
         }}
@@ -31,4 +31,4 @@ function App1() {
   )
 }
 
-export default App1
+export default App

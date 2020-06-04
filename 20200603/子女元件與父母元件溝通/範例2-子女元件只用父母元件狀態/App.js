@@ -1,4 +1,5 @@
-//父母元件-->接收子女元件傳送的資料(至component查看)
+
+// 子女元件只用父母元件狀態
 
 import React, { useState } from 'react'
 import MyTextInput from './components/MyTextInput'
