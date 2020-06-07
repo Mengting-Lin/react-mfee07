@@ -47,8 +47,10 @@ function TodoItem(props){
                     {value.completed ? '取消完成' : '完成工作'}
                 </button>
 
-
-                <span className="badge badge-primary badge-pill">⌚{date.toLocaleString()}</span>
+                <span className="badge badge-primary badge-pill">
+                    ⌚{date.toLocaleString()}
+                </span>
+                
             </li>
         </>
     )

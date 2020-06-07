@@ -13,12 +13,12 @@ function TodoList(props) {
           <ul className="list-group">
             {todos.map((value, index) => {
               // 依照completed刪除掉，或改變render的樣式
-              if (value.completed) {
+              if (value.edited) {
                 return  (
                 <TodoItemEditForm
                   key={value.id}
                   value={value}
-                  handleEditSave={handleEditedSave}
+                  handleEditedSave={handleEditedSave}
                 />
               )
             }

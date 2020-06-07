@@ -240,3 +240,12 @@ Route元件
 
 鉤子--函式型元件/類別型元件
 高階元件(high order component=HOF)--類別型元件
+
+
+redux
+ - 用於狀態管理(集中式管理多個組件共享的狀態)的JS庫(不是react插件)
+ - redux修改state流程：
+(1)store讀取react components狀態
+(2)action creators：生產action
+(3)store：觸發dispatch事件(通知store的方法/傳遞action物件，需指定type/data)
+(4)reducers：找到previousState回傳newState
