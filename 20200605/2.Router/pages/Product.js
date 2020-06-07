@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 
 import MyBanner from '../components/MyBanner'
+import MyBreadcrumb from '../components/MyBreadcrumb'
 
 function Procuct(props){
     console.log(props);
@@ -9,6 +10,7 @@ function Procuct(props){
     return (
         <>
             <MyBanner title="產品" lead="產品" />
+            <MyBreadcrumb />
             <h2>目前的產品編號是(從網址得上得到)：{props.match.params.id}</h2>
         </>
     )

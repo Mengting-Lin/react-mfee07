@@ -244,8 +244,23 @@ Route元件
 
 redux
  - 用於狀態管理(集中式管理多個組件共享的狀態)的JS庫(不是react插件)
- - redux修改state流程：
+ - 藉由強加某些限制在更新發生的方式和時機上，試圖讓state的變化更有可預測性
+
+redux三大原則：
+1. 整個應用程式的state，被儲存在一個樹狀物件放在唯一的store裡面(所有的state都被儲存在單一一個single tree)
+2. 改變state的唯一的方式是發出一個action，也就是一個描述發生什麼事的物件
+ - 這能確保view和網路callback都不會直接寫入state。替代的，它們表達了一個改變state的意圖
+ - 所有的改變都是集中的，並依照嚴格的順序一個接一個的發生，沒有需要特別注意的微妙race condition
+ - 因為Action只是普通物件，所以它們可以被記錄、serialize、儲存、並在之後為了debug或測試目的而重播
+3. 要指定state tree如何藉由action來轉變，你必須撰寫pure reducer
+ - 取得先前的state和一個action，並回傳下一個state(要回傳一個新的state物件，而不要去改變先前的state)
+ - 可從單一一個reducer開始，隨著應用程式成長，把它們拆分成比較小的reducer來管理state tree中的特定部分
+ - 因為reducer只是function，你可以控制它們被呼叫的順序、傳遞額外的資料、或甚至建立可重用的reducer來做一些常見的任務，例如pagination
+
+redux修改state流程：
 (1)store讀取react components狀態
 (2)action creators：生產action
 (3)store：觸發dispatch事件(通知store的方法/傳遞action物件，需指定type/data)
 (4)reducers：找到previousState回傳newState
+
+影片、ES6、複習、自傳、照片、html

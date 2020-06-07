@@ -5,7 +5,7 @@ function TodoItemEditForm(props) {
 
   //console.log(props)
   // 先解構賦值，直接套用由props得到的變數值
-  const { value, handleEditSave } = props
+  const { value, handleEditedSave } = props
 
   return (
     <>
@@ -24,7 +24,7 @@ function TodoItemEditForm(props) {
             type="button"
             className="btn btn-info mb2"
             onClick={() => {
-              handleEditSave(value.id, editText)
+              handleEditedSave(value.id, editText)
             }}
           >
             儲存

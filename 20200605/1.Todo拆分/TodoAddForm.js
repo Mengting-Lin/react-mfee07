@@ -1,8 +1,8 @@
 import React from 'react'
 
 function TodoAddForm(props) {
-    console.log(props);
-
+    // console.log(props);
+    // 先解構賦值，直接套用由props得到的變數值
     const {text, todos, setTodos, setText} = props
     // const {text, todos, setTodos, setText} = props.allProps
     

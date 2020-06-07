@@ -8,7 +8,8 @@ function MyNavbar(props) {
         <Navbar bg="primary" variant="dark" fixed="top">
         <Navbar.Brand href="#home">Navbar</Navbar.Brand>
         <Nav className="mr-auto">
-          {/* 將react bootstrap的Nav.Link當作NavLink使用 */}
+          {/* 將Nav.Link當作NavLink使用 */}
+          {/* react bootstrap的as：選單點亮與連結 */}
           <Nav.Link as={NavLink} to="/" exact>Home</Nav.Link>
           <Nav.Link as={NavLink} to="/about">About</Nav.Link>
           <Nav.Link as={NavLink} to="/todoapp">TodoApp</Nav.Link>          
