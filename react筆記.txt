@@ -243,6 +243,7 @@ Route元件
 
 
 redux
+https://chentsulin.github.io/redux/docs/introduction/index.html
  - 用於狀態管理(集中式管理多個組件共享的狀態)的JS庫(不是react插件)
  - 藉由強加某些限制在更新發生的方式和時機上，試圖讓state的變化更有可預測性
 
@@ -262,5 +263,18 @@ redux修改state流程：
 (2)action creators：生產action
 (3)store：觸發dispatch事件(通知store的方法/傳遞action物件，需指定type/data)
 (4)reducers：找到previousState回傳newState
+
+Action
+- 是store唯一的資訊來源
+- 是從你的應用程式傳遞資料到你的store的資訊payload
+- 藉由store.dispatch()來把它們傳遞到store
+- 是一般的JavaScript物件，action必須有一個type屬性，它代表被執行的action的類型
+
+const ADD_TODO = 'ADD_TODO'
+{
+  type: ADD_TODO,
+  text: 'Build my first Redux app'
+}
+
 
 影片、ES6、複習、自傳、照片、html
