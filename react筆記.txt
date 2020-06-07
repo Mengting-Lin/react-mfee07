@@ -152,3 +152,91 @@ https://github.com/eyesofkids/201/issues/19
 
 todo list 
 http://todomvc.com/examples/react/#/
+
+{123}
+{null}          -->invisible
+{undefined}     -->invisible
+{''}            -->invisible
+{Infinity}      -->invisible
+{456}
+{[789,1011]}
+{{ a:131 }}     --> obj is not valid in react, use an array
+{NaN}           -->number
+
+{()=>{}}        -->invisible，因為沒有執行
+
+{(function(){
+    return <h1>hhhh</h1>
+})()}
+
+// if/else簡寫法
+const test = 1
+{(test>1)? <h1>{test}</h1> : <h1>沒有可用的test</h1>}   -->三元運算符
+
+// if簡寫法：當test2存在時，回傳<h1>{test2}</h1>
+const test2 = true
+{test2 && <h1>{test2}</h1>}
+{test2 ? <h1>{test2}</h1> : ''}
+
+相當於下列if/else範例(需為立即函式)，但不建議使用
+{(()=>{
+    if (test>1) {
+        return <h1>{test}</h1>
+    } else {
+        return <h1>沒有可用的test</h1>
+    }
+})()}
+
+const test2 = 1
+{test2 && <h1>{test2}</h1>}
+
+安裝 react-router-dom
+> yarn add react-router-dom
+> npm install react-router-dom
+
+react-router使用說明
+https://github.com/eyesofkids/201/blob/master/data/0605/react-router%E4%BD%BF%E7%94%A8%E8%AA%AA%E6%98%8E.md
+https://github.com/eyesofkids/201/issues/23
+
+引入 react-router-dom
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
+
+return (
+    <Router>
+       <>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+
+        <Switch>
+            <Route path="/about">
+                <About />
+            </Route>
+            <Route exact path="/">
+                <Home />
+            </Route>
+        </Switch>
+       </>
+    </Router>
+)
+
+應用的最外層元件必須是Router元件
+
+Router元件
+- 只能有一個子元素在裡面，若有兩個以上的子元素，需用div或React.Fragment(<>...</>)先包含起來
+
+Switch元件
+- 通常會包裹Route元件
+- 會從上到下尋找最近的一個，也只會使用一個
+
+Route元件
+- 使用來建立路由的對照表
+- 可設置屬性很多，可以應用於各種應用情況
+- 通常位置都是在你的應用的最上層元件的Router元件的最下面一段JSX碼
+
+以Link取代a
+<Link to="/about">關於我們</Link>
+
+使用<a>時頁面會重新整理，資料會回到初始值狀態-->應使用router來跳轉頁面避免此問題
+
+鉤子--函式型元件/類別型元件
+高階元件(high order component=HOF)--類別型元件
