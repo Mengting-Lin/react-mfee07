@@ -39,7 +39,6 @@ function MyNavbar(props) {
             <Nav.Link as={NavLink} to="/productlist">產品列表</Nav.Link>          
             <Nav.Link as={NavLink} to="/memberlogin">Login</Nav.Link>          
             <Nav.Link as={NavLink} to="/counter">Counter</Nav.Link>          
-            <Nav.Link as={NavLink} to="/counterjson">Counterjson</Nav.Link>          
             <Nav.Link as={NavLink} to="/cart">購物車</Nav.Link>          
             {/* <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>

@@ -264,6 +264,9 @@ redux修改state流程：
 (3)store：觸發dispatch事件(通知store的方法/傳遞action物件，需指定type/data)
 (4)reducers：找到previousState回傳newState
 
+安裝redux
+> npm i --save redux
+
 Action
 - 是store唯一的資訊來源
 - 是從你的應用程式傳遞資料到你的store的資訊payload
@@ -275,6 +278,20 @@ const ADD_TODO = 'ADD_TODO'
   type: ADD_TODO,
   text: 'Build my first Redux app'
 }
+
+
+localStorage
+- 同步，非異步
+- 至application查看
+- 可儲存5M文字
+    //localStorage得到的值必為字串
+
+promise
+https://github.com/eyesofkids/201/blob/master/data/0609/javascript-start-es6-promise.pdf
+fetch
+https://github.com/eyesofkids/201/blob/master/data/0609/ajax_fetch.pdf
+async_await(異步轉同步)
+https://github.com/eyesofkids/201/blob/master/data/0609/async_await.pdf
 
 
 影片、ES6、複習、自傳、照片、html

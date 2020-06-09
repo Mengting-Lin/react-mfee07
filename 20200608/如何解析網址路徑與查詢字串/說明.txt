@@ -1,0 +1,30 @@
+React Router - 如何解析網址路徑與查詢字串
+https://github.com/eyesofkids/201/issues/25
+https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
+
+
+{Example}
+
+var paramsString = "q=URLUtils.searchParams&topic=api";
+var searchParams = new URLSearchParams(paramsString);
+
+//Iterate the search parameters.
+for (let p of searchParams) {
+  console.log(p);
+}
+
+searchParams.has("topic") === true; // true
+searchParams.get("topic") === "api"; // true
+searchParams.getAll("topic"); // ["api"]
+searchParams.get("foo") === null; // true
+searchParams.append("topic", "webdev");
+searchParams.toString(); // "q=URLUtils.searchParams&topic=api&topic=webdev"
+searchParams.set("topic", "More webdev");
+searchParams.toString(); // "q=URLUtils.searchParams&topic=More+webdev"
+searchParams.delete("topic");
+searchParams.toString(); // "q=URLUtils.searchParams"
+
+
+範例請看 Product.js
+於網址上輸入查詢字串 ex.
+http://localhost:3000/product/?cat=洗衣機&pid=1111

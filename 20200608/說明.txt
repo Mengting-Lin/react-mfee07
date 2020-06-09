@@ -1,0 +1,10 @@
+找不到網頁
+https://github.com/eyesofkids/201/issues/26
+
+回到上一頁或是某個連結 go to url /back
+
+類別型元件
+this.props.history.push('/foo')
+
+函式型元件
+props.history.push('/foo')

@@ -14,7 +14,6 @@ import Cart from './pages/Cart'
 
 import NotFoundPage from './pages/NotFoundPage'
 import MemberLogin from './pages/MemberLogin'
-import CounterJSONServer from './pages/CounterJSONServer'
 
 import ProtectedRoute from './utils/ProtectedRoute'
 import Counter from './pages/Counter'
@@ -104,9 +103,6 @@ function App(props){
               </Route>
               <Route path="/about">
                 <About />
-              </Route>
-              <Route path="/counterjson">
-                <CounterJSONServer />
               </Route>
               <Route path="/counter">
                 <Counter />

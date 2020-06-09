@@ -1,0 +1,20 @@
+json-server
+https://github.com/eyesofkids/201/blob/master/data/0609/json-server.pdf
+
+1. 於vs code new window安裝
+>npm i -g json-server
+2. 給他一個db.json
+3. 執行指令碼
+> npx json-server --watch --port 5555 db.json
+(port號為5555)
+4. 至localhost:5555/items(檔名)查看json內容
+
+PS 一次只能執行一個json檔
+
+json-server是一個使用rest api的伺服器
+REST api
+Post   新增
+Get    讀取
+Put    更新(每筆資料都要有)
+Delete 刪除
+Patch  取代部分資料(有部分資料即可)

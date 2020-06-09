@@ -9,15 +9,9 @@ import Home from './pages/Home'
 import About from './pages/About'
 import TodoApp from './pages/TodoApp'
 import Product from './pages/Product'
-import ProductList from './pages/ProductList'
-import Cart from './pages/Cart'
 
 import NotFoundPage from './pages/NotFoundPage'
 import MemberLogin from './pages/MemberLogin'
-import CounterJSONServer from './pages/CounterJSONServer'
-
-import ProtectedRoute from './utils/ProtectedRoute'
-import Counter from './pages/Counter'
 
 
 // import TodoAddForm from './components/todo/TodoAddForm'
@@ -44,8 +38,6 @@ function App(props){
   const loginProcess = (loginSuccessCallback) => {
 
     const errors = []
-
-    // 檢查錯誤
     if (name==='') errors.push('姓名沒填')
     if (username==='') errors.push('帳號沒填')
     if (password==='') errors.push('密碼沒填')
@@ -63,18 +55,6 @@ function App(props){
     loginSuccessCallback()
   }
 
-  const logoutProcess = (logoutSuccessCallback) => {
-    setName('')
-    setUsername('')
-    setPassword('')
-
-    // 認証改為false
-    setAuth(false)
-
-    // 執行成功的callback(來自MemberLogin)
-    logoutSuccessCallback()
-  }
-
   return (
     <Router>
       <>
@@ -85,9 +65,6 @@ function App(props){
             <Link to="/todoapp">待辨</Link> */}
             
             <Switch>
-              <Route path="/cart">
-                <Cart />
-              </Route>
               <Route path="/memberlogin">
               <MemberLogin 
                 name={name} 
@@ -97,7 +74,6 @@ function App(props){
                 password={password}
                 setPassword={setPassword}
                 loginProcess={loginProcess}
-                logoutProcess={logoutProcess}
                 loginErrors={loginErrors}
                 auth={auth}
               />
@@ -105,23 +81,14 @@ function App(props){
               <Route path="/about">
                 <About />
               </Route>
-              <Route path="/counterjson">
-                <CounterJSONServer />
+              <Route path="/todoapp">
+                <TodoApp todos={todos} setTodos={setTodos} />
               </Route>
-              <Route path="/counter">
-                <Counter />
-              </Route>
-              <ProtectedRoute path="/todoapp">
-                <TodoApp todos={todos} setTodos={setTodos} isAuth={auth}/>
-              </ProtectedRoute>
               <Route exact path="/">
                 <Home />
               </Route>
               <Route path="/product/:type?/:id?">
                 <Product />
-              </Route>
-              <Route path="/productlist">
-                <ProductList />
               </Route>
               <Route path="*">
                 <NotFoundPage />
