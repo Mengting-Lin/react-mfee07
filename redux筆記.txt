@@ -1,31 +1,43 @@
 【index.js】
 
+import {Provider} from 'react-redux'
 import store from './redux/store'
 
+ReactDOM.render((
+    <Provider store={store}>
+        <App/>
+    </Provider>
+), document.getElementById('root'))
+
+//引入react-redux即不須以下(含subscribe)
 function render(){
     ReactDOM.render(<App store={store}/>, document.getElementById('root'))
 }
-
-// 初始化渲染
-render()
-
-// 調閱監聽(store中的狀態變了，就會自動調用進行重繪)
-store.subscribe(render)
+render()                       // 初始化渲染
+store.subscribe(render)        // 調閱監聽(store中的狀態變了，就會自動調用進行重繪)                         
 
 
 
 【app.js】
 
+import PropTypes from 'prop-types'
 import {increment, decrement} from './actions'                      import * as actions from './actions'
 
 export default class App extends Component {
+
+    static propTypes = {
+        count: PropTypes.number.isRequired,
+        increment: PropTypes.func.isRequired,
+        decrement: PropTypes.func.isRequired
+    }
+
     increment = () => {
         const number = this.select.value * 1
-        this.props.store.dispatch(actions.increment(number))        // {type:INCREMENT, data:number}
+        this.props.store.dispatch(actions.increment(number))        // this.props.store.dispatch({type:INCREMENT, data:number})
     }
     decrement = () => {
         const number = this.select.value * 1
-        this.props.store.dispatch(actions.decrement(number))        // {type:DECREMENT, data:number}
+        this.props.store.dispatch(actions.decrement(number))        // this.props.store.dispatch({type:DECREMENT, data:number})
     }
 this.props.store.getState()
 
