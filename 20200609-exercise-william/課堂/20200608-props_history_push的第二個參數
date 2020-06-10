@@ -1,0 +1,13 @@
+Router - props.history.push的第二個參數和Redirect元件的to中的state值 
+
+state用於控制是從哪來的，可以由this.props.location.state得到。
+
+push(path, [state])
+Redirect元件也有這種特性：
+
+ <Redirect
+     to={{
+       pathname: '/memberlogin',
+       state: { from: props.location },
+     }}
+ />

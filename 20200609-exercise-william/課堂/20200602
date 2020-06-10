@@ -1,0 +1,133 @@
+1.  const[total, setTotal] = useState(999); // useState 是api
+                                             // 是結構賦值
+                                             // useState 是回傳 array
+                                             // https://babeljs.io/ 在這裡查看
+2.  類別型元件 class
+        -> 類別也算一種韓式
+        -> 不用鉤子hooks
+        -> setState 來來自於 react.component
+            -> setState 是修改 this.state = {total: 0} 方法
+            -> setState 中 是一個物件 this.setState({total: this.state.total + 1});
+        -> super(props);是呼叫 react.component 的建構式
+            -> props 是 建構式要使用 props 這個屬性
+            固定写法 一：
+            constructor(props) {      // props 是接受外部参数
+                super(props);         // 将props传递给 Component
+            }
+            固定写法 二：(开始定义数据)
+            this.state = {}                 // 固定写法
+            this.state = {
+                inputValue: 'hello world',  // 即将要传入input的值
+                list: [],                   // 放列表中的数据
+            }
+        -> super(props); 
+            -> 用extends關鍵字可以作類別的繼承，而在建構式中會多呼叫一個 super() 方法，用於執行上層父母類別的建構式之用。 super 也可以用於 指向上層父母類別，呼叫其中的方法或存取屬性。
+
+2.  eslint 是檢查工具 （vscode）
+    -> 她可以和 babel 配合
+    -> cmd 專案下 安裝
+        -> https://github.com/eyesofkids/201/tree/master/data/0601/reactjs%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E8%A8%AD%E5%AE%9A/CRA-eslint-prettier
+        —> yarn add eslint-plugin-prettier prettier eslint-config-react-app eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y eslint-plugin-react-hooks
+        -> 下載 .eslintrc 與 .prettierrc 與 .eslintignore 的設定檔，拷貝到專案的根目錄
+            -> 20200601_itemstest項目中
+        -> 更新 VS Code 設定
+            -> 選單->喜好設定
+            -> perferences -> setting -> 右上角 icon (open settings)
+                -> 以下複製進去
+                        "editor.formatOnSave": true,
+                        "[javascript]": {
+                            "editor.formatOnSave": false
+                        },
+                        "prettier.disableLanguages": [
+                            "js"
+                        ],
+                        "eslint.alwaysShowStatus": true,
+                        "editor.codeActionsOnSave": {
+                            "source.fixAll.eslint": true
+                        }
+                 -> vscode 重新開啟
+                 -> OK ！
+2.  react.redux devTools （google 瀏覽器）
+    -> redux 和 vuex 很像,都是資料暫存
+    -> https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd/related
+
+    React Developer Tools
+    -> https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi/related
+
+2.  hrome除錯器安裝設定步驟
+    -> 安裝 VS Code 擴充
+    -> https://github.com/eyesofkids/201/blob/master/data/0601/reactjs%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E8%A8%AD%E5%AE%9A/chrome%E9%99%A4%E9%8C%AF%E5%99%A8%E5%AE%89%E8%A3%9D%E8%A8%AD%E5%AE%9A%E6%AD%A5%E9%A9%9F.md
+        -> 第一步： Chrome Debugger ****
+        -> 第二步： 新增 launch.json (如何生成？)
+                -> 點擊 左側的 蜘蛛icon
+                    -> 點擊創建 launch.json
+                        -> 以下複製進去
+                            {
+                                "version": "0.2.0",
+                                "configurations": [
+                                    {
+                                    "name": "Chrome",
+                                    "type": "chrome",
+                                    "request": "launch",
+                                    "url": "http://localhost:3000",
+                                    "webRoot": "${workspaceRoot}/src",
+                                    "sourceMapPathOverrides": {
+                                        "webpack:///src/*": "${webRoot}/*"
+                                    }
+                                    }
+                                ]
+                            }
+                        -> 要記得 把舊的 刪掉 ****
+            -> 第三步： 如何使用？
+                -> 點擊 左側的 蜘蛛icon
+                    -> 在 js 檔案中，左側 有很多 若隱若現 的紅色小圓點
+                        -> 點擊 並且 讓他出現 紅點
+                            -> 到左側 蜘蛛icon 點擊
+                                -> 點擊 chrome 和 啟動箭頭 啟動
+                                -> 右上角就有一排icon，點擊上下就可以進行偵錯 (記得要紅點要下在函式內)
+                                -> OK！
+2. es6 
+    -> this 
+        -> 是指 物件實體專用變數
+            -> 執行上下文的概念
+            -> this 通常指向 windows(javascript) or goladel(node.js)
+            ->  this.handleClick = this.handleClick.bind(this);
+                使用箭頭函數，就不用寫 用bind() 綁定this 
+                以下是 手動綁定this
+                使用箭頭函數 是 自動綁定 this 
+                
+        ->  constructor 中的this 是指向 新建立物件實例 （建構式/構造函數）
+2. constructor 
+    -> 她一定會在物件方法中 被 呼叫一次，他只會 初始化 （只會被呼一次，並且是初始化）
+    -> 
+    -> 
+    -> 
+    -> 
+2. 私有成員
+    -> 
+    -> 
+    -> 
+    -> 
+    ->  
+2. 靜態屬性
+    -> static
+        -> static xxxx(){ ... }
+        -> static xxxx = { ... } // es7 （靜態）類型
+        ->  // ES7語法方式
+            class Video extends React.Component {
+                static defaultProps = { // 靜態屬性
+                    autoPlay: false,
+                    maxLoops: 10,
+                }
+                render() { ... }
+            }
+
+            // ES6語法方式
+            class Video extends React.Component {
+                constructor(props) { ... }
+                render() { ... }
+            }
+            Video.defaultProps = { ... } // 靜態屬性
+2. 
+2. 
+2. 

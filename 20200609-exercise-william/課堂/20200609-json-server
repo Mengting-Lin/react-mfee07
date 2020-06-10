@@ -1,0 +1,80 @@
+本文說明json-server的用法。 
+如果不想在電腦中安裝，可以試試它的免費線上測試用版本: jsonplaceholder 
+
+步驟一: 安裝 json-server
+首先是安裝它，直接用在命令列工具(終端機)中用 npm 工具就可以安裝，裝在全域即可:
+
+npm install -g json-server
+
+步驟二: 準備 db.json 資料庫檔案
+
+db.json 檔案格式就類似像下面這樣，它與 JavaScript 中的物件格式很像，不過它是 JSON 的格式檔案，是有一些差異的。而且是個純文 字檔而已:
+{ "items": [      
+    {
+    "id": 1482513391121,
+    "title": "聽演唱會",
+    "isCompleted": true
+    }
+]} 
+
+步驟三: 啟動 json-server
+啟動它也是用命令列工具(終端機)的指令，當然前提是你要先建立一個 db.json 檔案，
+這個檔案中在我們上面這個範例中有附上(名稱可能是 xxx.json 的檔案，請依不同名稱輸入指令)，
+命令列(終端機)的對應目錄在 db.json 檔案的同目錄路徑中:
+
+无此 db.json 文件： json‑server ‑‑watch ‑‑port 5555 db.json 
+william 测试：      json-server --watch --port 5555 todos.json
+
+這個指令代表要啟動一個在埠號為 5555 的 json-server 伺服器，
+之後就可以用瀏覽器打開 http://localhost:5555/items json-server 伺服器的網址後加上 items 會自動只列出 items 裡面的 json 資料，
+它稱之為 Routes(路由)。 
+註: 我們一般在開發測試 React 應用的是 3000 埠，json-server 伺服器是 5555 埠，相當於在同一個電腦啟動了兩個不同的伺服器。 
+註: 上面的 5555 是隨便取的埠號，你要用 8888 或 9999 也可以，不過埠號有一定的範圍就是。 
+
+步驟四: 使用 REST API
+因為 json-server 伺服器是個用 REST API 的伺服器，而且又有小型資料庫，又該如何新增、讀取、更新…裡面的資料？ 
+首先你要先理解REST是什麼，也就是在傳資料時的方法(method)值，指定不同值時分別要作不同的事情之用，
+例如下面幾個: 
+            POST    = 新增
+            GET     = 讀取
+            PUT     = 更新  /  必须所有的栏位都要有，而 PATCH 只需要单个栏位就行
+            DELETE  = 刪除 
+            PATCH   = 取代部份資料 
+
+下面就幾種常用的要作某些事情的範例:
+
+載入所有資料
+載入所有資料，預設是用 id 由小至大( ASC )排序: 
+GET /items 
+
+用 id 排序，由大至小: 
+GET /items?_sort=id&_order=desc
+
+新增一筆資料
+POST /items 資料範例:
+{    
+    "id": 4,    
+    "title": "專心學React",    
+    "isCompleted": false  
+} 
+
+更新一筆資料
+PUT /items/4 資料範例:
+{    
+    "title": "React學好了",    
+    "isCompleted": true 
+} 
+
+PATCH /items/4 資料範例:
+{    
+    "isCompleted": false  
+} 
+
+註：PATCH 與 PUT 類似，但 PATCH 可只針對其中一個資料欄位進行更動，PUT 除了 id 欄位，其它的資料均需要再給定，不論有沒有更 動。
+
+刪除一筆資料
+DELETE /items/4
+
+其它說明
+json-server 對於要獲取資料有很多的參數值可以使用，例如針對某個欄位進行排序，取出一定的範圍等等，對於開發特定應用時有很多的 幫助。
+詳情請看json-server的說明文件。

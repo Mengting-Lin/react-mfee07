@@ -1,0 +1,18 @@
+TodoList-新增改減
+
+GET
+
+POST
+查看TodoAddForm.js
+方法1：fetch
+方法2：async await
+
+PUT
+查看TodoApp.js
+
+PATCH
+
+UPDATE
+
+DELETE
+查看TodoApp.js

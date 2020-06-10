@@ -1,0 +1,126 @@
+1. es6 是重點，需要自習
+2. react 是學習php 的解構
+2. preact 框架 是 react 的輕量版
+2. react 是函數庫（library） 並非 framework（框架比較難學）
+2. react 是建立使用者的操作介面
+2. react 是可以整合其他已有的應用程式或函數庫 
+2. react-native 是react延伸出的手機開放框架
+    -> PWA 漸進式框架
+    -> 
+
+----------------- 課程開始 -----------------
+2. 安裝套件 vscode
+    -> Rainbow Brackets
+    -> babel javascript
+    -> chinese
+    -> vscode-icons
+    -> esLint  / 程式碼檢查
+    -> Prettier - Code formatter / 排版使用 /commend + shift +p -> format document
+
+2. react 16版本新核心 - react fiber（纖程）
+2. 1個fiber = 一個工作單位
+2. 1個fiber = 一個JavaScript物件，其中包含了一個元件的 輸出和輸入 資訊 
+2. 優先權限等級
+    -> immediate 立即
+    -> priority
+    -> 
+    -> 
+2. react 特性 重點
+    -> 虛擬dom (“vdom“ === virtual dom)
+            -> react 中自行管理的dom 結構，用於 差異比較後 再與 真實dom做渲染
+            -> react是虛擬的dom ---- 網頁是真實的dom
+            -> 為何要讓react管理dom結構，而不是由開發者來控制管理？
+                -> react 是一個 中介，直接告訴react需要創建dom就可以
+                -> react 處理dom不會比較快，他只是協助開發者維護應用程式，而且足夠快進行dom處理
+            ->
+            ->
+            ->
+    -> JSX
+        -> js 是 JavaScript, x 是 xml
+        -> 是 react 自創的語法
+        -> 使用的時候需要使用（{ .. }）嵌入js表達式，具有求值運算的功能
+        -> react.createelement 是
+            -> const el =   React.createElement("div", {
+                                classs: "aaa"
+                            }, "123"); // react 寫法
+                -> cconst el  = <div classs="aaa">123</div> // js 寫法
+            例子："use strict";
+                const el  = <div>
+                                <ul>
+                                    <li><a>123</a></li>
+                                    <li><a>123</a></li>
+                                </ul>
+                            </div>
+                const el = /*#__PURE__*/React.createElement("div", null, 
+                            /*#__PURE__*/React.createElement("ul", null, 
+                            /*#__PURE__*/React.createElement("li", null, 
+                            /*#__PURE__*/React.createElement("a", {
+                            href: "https://xx"
+                            }, "123")), 
+                            /*#__PURE__*/React.createElement("li", null, 
+                            /*#__PURE__*/React.createElement("a", null, "123"))));
+        -> 
+        -> 
+        -> 
+    -> 元件化
+        -> App 
+        -> TodoList 
+        -> TodoItem
+        -> TodoAddFrom
+        -> 
+        -> 
+    -> 單向數據流
+        -> props 屬性元件
+            -> 擁有者 和 被擁有者的溝通方式 （傳遞資料的方式）
+        -> state 狀態元件
+            -> 
+        -> App元件擁有者（父） 才能送資料 給 Hello元件被擁有者（子）
+            -> Hello元件（子） 不能更改 自己的屬性
+    
+    -> 宣告式程式設計
+        -> 指令式程式設計
+            -> 需唷明確電腦每一步該怎麼做
+        -> 宣告式程式設計
+            -> 只要告訴目標，電腦了解目標之後，就會自己去執行
+        -> 
+    
+    -> state 狀態元件
+        -> 
+
+----------------- 開發環境與工具 -----------------
+2. 開發環境與工具
+    -> node.js 為安裝核心（npm）
+    -> NVM === node version manager 可安裝很多個 node.js 版本 -> mac or nvm-windows
+    -> 
+    -> 
+    -> 
+2. 安裝項目
+    -> create-react-app
+    -> npx create-react-app 項目名稱
+    -> npx 是 node.js 但命令
+    -> npx create-react-app 20200601_itemstest
+        -> https://create-react-app.dev/docs/getting-started/
+    -> yarn 比 npx 和 npm 安裝速度快
+        -> 老師推薦
+            -> 安裝yarn
+            -> mac -> https://classic.yarnpkg.com/zh-Hant/docs/install/#mac-stable
+            -> windows -> https://classic.yarnpkg.com/zh-Hant/docs/install/#windows-stable
+            -> 安裝命令 npx create-react-app 20200601_itemstest
+                -> 他會自動啟動 yarn (出現 ： yarn add v1.13.0)
+2. 
+2. 主要文件在src/ App.js 
+    -> class 類比型元件
+        -> hooks 鉤子
+        -> 生命週期
+    -> function 函數型元件  / 2019 年才有hooks
+        -> hooks 鉤子
+        -> 生命週期
+2. public
+    -> 這裡是方html文件
+    -> 
+2. State 元件
+    -> 只能在元件內部使用及更動，無法在不同的元件上存取或使用
+    -> State 與使用者互動的關係，他會因為使用者操作而改變資料
+        ->State 元件 是狀態
+        ->props 元件 是屬性
+2. 

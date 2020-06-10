@@ -25,11 +25,11 @@ import Counter from './pages/Counter'
 // import TodoList from './components/todo/TodoList'
 
 function App(props){
-  const [todos, setTodos] = useState([
-    { id: 1591256594282, text: '買牛奶', completed: false, edited: false },
-    { id: 1591256594281, text: '買iphone', completed: false, edited: true },
-    { id: 1591256594283, text: '學react', completed: false, edited: false },
-  ])
+  // const [todos, setTodos] = useState([
+  //   { id: 1591256594282, text: '買牛奶', completed: false, edited: false },
+  //   { id: 1591256594281, text: '買iphone', completed: false, edited: true },
+  //   { id: 1591256594283, text: '學react', completed: false, edited: false },
+  // ])
 
   const [name, setName] = useState('')
   const [username, setUsername] = useState('')
@@ -112,7 +112,11 @@ function App(props){
                 <Counter />
               </Route>
               <ProtectedRoute path="/todoapp">
-                <TodoApp todos={todos} setTodos={setTodos} isAuth={auth}/>
+                <TodoApp 
+                  // todos={todos} 
+                  // setTodos={setTodos} 
+                  isAuth={auth}                  
+                />
               </ProtectedRoute>
               <Route exact path="/">
                 <Home />

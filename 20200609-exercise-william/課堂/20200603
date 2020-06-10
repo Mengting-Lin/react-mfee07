@@ -1,0 +1,138 @@
+1.  this.setState({ total: this.state.total + value }) 
+    -> setState 是異步函數
+    -> handleChange = (event) => {
+            // 先取道值，此方法是已經取到更新後的值，下面console會一起改變
+            const values = event.target.value;
+            // 異步 setState
+            this.setState({value: values})
+
+            console.log(this.state.value)
+        }
+    -> setState() 
+    -> https://reactjs.org/docs/react-component.html#setstate
+        -> 一共有2種 傳入參數
+            -> setState(updater, [callback])
+                -> updater 是一種函式
+                -> updater 是一個物件值, callback 是函式
+                -> 
+
+2. import ReactDOM from 'react-dom'; // index.js 
+    -> render(){ .. }
+    -> 專門用來 將虛擬dom 轉成 真實dom 
+
+3. PropTypes與defaultProps
+    -> 寫元件使用
+    -> 
+    -> 
+4. props
+    -> 父组件 <MyDisplay TextTotals={total}/> 
+        -> 子组件 MyDispaly
+            -> <div>{props.TextTotals}</div>
+            -> 子组件 使用 props 来进行 父组件值抓取
+               父组件中的子组件有什么属性，就能抓取什么属性（例如: TextTotals）
+        -> <MyDispaly/> 這就是 元件 ！ jsx 語法 ！
+
+    -> 限制種類
+        -> https://www.npmjs.com/package/prop-types
+        -> 型態 和 必要 
+        -> 規定 使用者 必須按照規定來使用
+        -> cmd >  npm install --save prop-types
+        -> import PropTypes from 'prop-types'; // ES6
+        ->  MyDispaly.propTypes = { 
+                TextTotals: PropTypes.string.isRequired, // 要求使用者 希望使用 string 而不是其他
+            }
+5.  React元件溝通方式大全
+    https://github.com/eyesofkids/201/issues/5
+        -> 子傳父
+            -> 父元件 比較要先做一個 function 給子元件做溝通
+            -> jsx 語法 內 可以傳函式
+                -> 1. 父元件設置
+                    -> 製造 hooks / const [nameFromChold, setNameFromChold] = useState('');
+                    -> 在父元件中 引入的子組件內 寫入方法
+                        <MyTextInput sendNameToMe={(nameValue)=>{ 
+                            setNameFromChold(nameValue) 
+                            }}
+                        />
+                    -> 將 sendNameToMe 方法 用props 的方式 傳入 子組件
+                        -> 在子組件中 
+                            -> 記得要在 function MyTextInput(props) { ... } 要加props 
+                            -> 在dom 中 使用 props.sendNameToMe(name)
+                    -> 
+                    -> 
+                -> 
+        -> 父傳子
+        -> 
+6. 所有的react component 都必須想 pure function 保護她的 props
+    -> state 
+        -> 用途
+            -> 元件內部私有資料
+            -> 
+        -> 
+            -> 
+        -> 
+7. 生命週期方法 掛載 mounting
+    -> ReactDOM.render ->  constuctor -> reder -> componentDid
+
+7. 生命週期方法 更新 updating
+    -> setState -> shuldComponentUpdate -> render(重新渲染) -> componentDidUpdate
+    -> props -> shuldComponentUpdate -> render(重新渲染) -> componentDidUpdate
+    -> forceUpdate -> shuldComponentUpdate -> render(重新渲染) -> componentDidUpdate
+    -> 
+7. 生命週期方法 卸載 Un-mounting
+    -> ReactDOM -> componentDidmount
+
+---------------- hooks ----------------
+8. useState 鉤子
+8. useEffect 鉤子
+    -> https://github.com/eyesofkids/201/issues/13
+    -> 三合一
+        -> componentDidMount -> 類比型元件 才能用
+        -> componentDidUpdate -> 類比型元件 才能用
+        -> componentWillUnmount -> 類比型元件 才能用
+    -> 函式型元件 只能使用 鉤子 hooks
+    -> 每次render都會執行
+        useEffect(() => {
+        console.log("This will be logged after every render!")
+        })
+    -> 
+    -> 
+    -> 
+總結 ： https://github.com/eyesofkids/201/issues/13
+    hooks 中
+        -> 不使用 componentxxxx (){ .. }
+            -> componentDidMount
+            -> componentDidUpdate
+            -> componentWillUnmount
+                -> 例子
+                    componentDidMount() {
+                        window.addEventListener('mousemove', () => {})
+                    }
+
+                    componentWillUnmount() {
+                        window.removeEventListener('mousemove', () => {})
+                    }
+
+        -> 使用生命週期hooks 鉤子
+            ->  ------> For componentDidMount
+                useEffect(() => {
+                    // Your code here
+                }, []);
+            ->  ------> For componentDidUpdate
+                useEffect(() => {
+                    // Your code here
+                }, [yourDependency]);
+            ->  ------> For componentWillUnmount
+                useEffect(() => {
+                    return () => {
+                    // Your code here
+                    }
+                }, [yourDependency]);
+                -> 例子
+                    useEffect(() => {
+                        window.addEventListener('mousemove', () => {});
+
+                        // returned function will be called on component unmount 
+                        return () => {
+                            window.removeEventListener('mousemove', () => {})
+                        }
+                    }, [])

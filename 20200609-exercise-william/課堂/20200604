@@ -1,0 +1,140 @@
+
+1. ref 參照
+    -> 傳址 的一種方法
+        -> 使用refs來獲取dom元素
+        -> 使用id或class值獲取dom元素，只能在componentDidMount生命周期方法中使用
+        -> porps 是無法抓取的，因為 級數 和props 平行
+2. 安裝 jquery
+    -> yarn add jquery / yarn add jquery
+   導入jquery模組
+    -> import $ from 'jquery'
+
+3. useref -> hooks
+
+4. SASS/SCSS - CRA+Bootstrap4搭配使用
+    -> https://react-bootstrap.github.io/
+    -> react bootstrap
+     -> 1. 安裝所需的套件
+        # 使用yarn
+        yarn add node-sass bootstrap react-bootstrap react-icons
+
+        # 使用npm
+        npm install --save node-sass bootstrap react-bootstrap react-icons
+    -> 2. 全站使用樣式 index.scss
+            在src目錄新增一個index.scss
+
+            @import './styles/custom.scss';
+    -> 3.自訂樣式 custom.scss
+            在src/styles目錄新增一個custom.scss
+
+    -> ⭐比HTML更嚴格
+            自行結尾的標記(單一行)的結尾必須要是/> - 最常見input, img, hr, br，例如<br>要改成<br />
+            class要換成className
+            for要換成htmlFor
+            style要變成Javascript的物件值(雙花括號)
+
+    -> 4. 覆蓋預設變數 variables.scss
+        -> $white:    #fff !default;
+            -> 只要有 !default 就說明可以修改 bootstrap 
+5. react-bootstrap
+    -> https://react-bootstrap.github.io/layout/grid/
+    -> https://react-bootstrap.github.io/components/alerts/
+    -> 寫法不一樣 和 原始的bootstrap
+6. react aniamte 動畫
+    -> https://github.com/rnosov/react-reveal
+    -> https://www.react-reveal.com/examples/advanced/todo/
+        -> yarn add react-reveal
+        -> import Zoom from 'react-reveal/Zoom';
+        ->  <Zoom>
+                <p>Markup that will be revealed on scroll</p>
+            </Zoom>
+7. react-icons
+    -> https://github.com/react-icons/react-icons
+    -> https://react-icons.github.io/react-icons/
+        -> npm install react-icons --save
+            ->  import { FaBeer } from 'react-icons/fa';
+                class Question extends React.Component {
+                    render() {
+                        return <h3> Lets go for a <FaBeer />? </h3>
+                    }
+                }
+8. scss
+    -> 安裝 
+    -> https://github.com/eyesofkids/201/blob/master/data/0604/scss-200310.md
+        -> 安裝Ruby
+        -> 後用gem指令安裝 gem install sass
+        -> 
+        -> 
+    -> https://github.com/eyesofkids/201/blob/master/data/0604/scss-200310.md
+        -> 可以用錢號($)來定義變數，用冒號(:)來指定變數的值
+            //scss
+            $color-white: #fff;
+            $color-pink: #ee11ab;
+            $title-font: normal 24px/1.5 'Open Sans', sans-serif;
+            $primary-color: $color-pink;
+            a {
+                background-color: $color-white;
+                color: $color-pink;
+            }
+        -> 
+            // scss
+            .parent{
+                &:hover{}
+                &.other-class{}
+            }
+            相當於 下面 css 
+            /* CSS */
+            .parent:hover{}
+            .parent.other-class{}
+        -> 混合(Mixin)
+            @mixin borderRadius($radius) {
+                border-radius: $radius;
+            }
+
+            .box { 
+                @include borderRadius(10px); 
+            }
+        -> 擴充/繼承(Extend)
+            .message {
+                border: 1px solid #ccc;
+                padding: 10px;
+                color: #333;
+            }
+
+            .success {
+                @extend .message;
+                border-color: green;
+            }
+
+            .error {
+                @extend .message;
+                border-color: red;
+            }
+        -> 函式(Functions)
+            => SCSS中也有@function可以定義自訂的函式，也有一些簡單的程式語法，例如@return、@if、@for、@each等流程控制的特性，以及簡單的運算能力
+            @function calculate-width ($col-span) {
+                @return 100% / $col-span;
+            }
+
+            .span-two {
+                width: calculate-width(2); // spans 2 columns, width = 50%
+            }
+
+            .span-three {
+                width: calculate-width(3); // spans 3 columns, width = 33.3%
+            }
+        -> SCSS中也內建了許多工具函式
+            % 亮顏色的lighten
+            % 加深顏色的darken
+            $awesome-blue: #2196f3;
+            a {
+                background-color: $awesome-blue;
+                padding: 10px 15px;
+            }
+
+            a:hover {
+                background-color: darken($awesome-blue,10%);
+            }
+        -> 
+9. 
+10. 

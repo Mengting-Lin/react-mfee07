@@ -1,0 +1,65 @@
+https://github.com/eyesofkids/201/issues/13
+
+每次render都會執行
+useEffect(() => {
+  console.log("This will be logged after every render!")
+})
+沒有第二個傳入參數的情況，是非常不好的寫法。代表每次render都會執行。
+
+---------------------------------- componentDidMount
+相等於生命周期方法
+For componentDidMount
+
+useEffect(() => {
+    // Your code here
+  }, []);
+  
+---------------------------------- componentDidUpdate
+For componentDidUpdate
+
+useEffect(() => {
+    // Your code here
+  }, [yourDependency]);
+
+---------------------------------- componentWillUnmount
+For componentWillUnmount
+
+useEffect(() => {
+    return () => {
+       // Your code here
+    }
+  }, [yourDependency]);
+
+實例：希望每次計數器有變動時，或是一開始時會觸發effect
+----------------------------------
+
+const [count, setCount] = useState(0);
+//...
+useEffect(() => {
+    // <div>{count}</div>
+  }, [count]);
+以下的程式碼
+
+componentDidMount() {
+  window.addEventListener('mousemove', () => {})
+}
+
+componentWillUnmount() {
+  window.removeEventListener('mousemove', () => {})
+}
+相等於
+
+useEffect(() => {
+  window.addEventListener('mousemove', () => {});
+
+  // returned function will be called on component unmount 
+  return () => {
+    window.removeEventListener('mousemove', () => {})
+  }
+}, [])
+特別注意
+沒有第二個傳入參數的情況，是非常不好的寫法。代表每次render都會執行。
+
+useEffect(() => {
+  // Your code here
+});

@@ -1,0 +1,130 @@
+react router 使用
+https://github.com/eyesofkids/201/blob/master/data/0605/react-router%E4%BD%BF%E7%94%A8%E8%AA%AA%E6%98%8E.md
+1. 安裝 react-router-dom 模組
+    -> https://reacttraining.com/react-router/web/guides/quick-start
+        -> yarn add react-router-dom
+        -> npm install react-router-dom
+
+2. 應用的最外層元件必須是Router元件
+    -> Router元件直接由React Router模組導入，一般都是使用BrowserRouter作為Router元件。
+    *** -> import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
+        Switch 是切換的意思
+    -> 等級劃分
+        -> router < app.js < index.js < roudex
+    ->  <Router>
+        <>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+
+            <Switch>
+                <Route path="/about">
+                    <About />
+                </Route>
+                <Route exact path="/">
+                    <Home />
+                </Route>
+            </Switch>
+        </>
+        </Router>
+    -> App.js 留給 router 使用
+
+3.  以Link取代a
+    a元素是網站應用中的連結網頁用元素，Link元件是React Router中用來取代a的元件。
+
+    原本的連結應該是像下面這樣：
+    <a href="/about">關於我們</a>
+    
+    改為Link元素後會像下面這樣：
+    <Link to="/about">關於我們</Link>
+
+4.  Link元件中除了可以像a元素中，使用id、title、className等屬性外，
+    to屬性中可以使用物件的定義方式，來定義這個連結路徑的參數值、hash值、state值，例如以下的範例：
+
+    <Link
+        to={{
+            pathname: "/courses",
+            search: "?sort=name",
+            hash: "#the-hash",
+            state: { fromDashboard: true }
+        }}
+    />
+    
+    但如果是使用在選單項目的連結，因為會有active(被點按到時的特定css)，
+    會改用NavLink元件，這個元件是特別針對像選單項目這種導覽所設計的，多出了幾個點按到時的特別屬性，例如：
+
+    activeClassName：被點按進入套用的css類別
+    activeStyle：被點按進入套用的css樣式
+    isActive：決定被點按與否的函式
+
+    {/* react bootstrap */} 
+    <Nav.Link as={NavLink} to="/" exact>Home</Nav.Link>
+    <Nav.Link as={NavLink} to="/about">About</Nav.Link>
+    <Nav.Link as={NavLink} to="/todoapp">ToDoApp</Nav.Link>
+
+    {/* 無css 樣式 */}
+    {/* as={NavLink} 就會有 css 樣式 */}
+    <Link as={NavLink} to="/" exact> 首頁 </Link>
+    <Link as={NavLink} to="/about"> 關於我們 </Link>
+    <Link as={NavLink} to="/todoapp"> 代辦事項 </Link> 
+    
+    {/* 導覽頁面專用 因為有css 樣式 */}
+    <NavLink to="/" exact> 首頁 </NavLink>
+    <NavLink to="/about"> 關於我們 </NavLink>
+    <NavLink to="/todoapp"> 代辦事項 </NavLink>
+
+5.  <a href="/about">關於我們</a> & <Link to="/about">關於我們</Link> 差別
+    -> <a> 會重新載入，刷新頁面
+    -> <Link> 會紀錄使用者動作
+    
+6.  React Router - URL參數值 
+    https://github.com/eyesofkids/201/issues
+        -> 1. 路由處定義參數屬性名稱(:id)
+                <Route path="/product/:id">
+                    <Product />
+                </Route>
+        -> 2. Product元件使用withRouter方法，得到props值
+                import React from 'react'
+                import { withRouter } from 'react-router-dom'
+
+                function Product(props) {
+                    //...
+                }
+
+                // 高階元件的用法 *** 
+                // 擴充元件本身能力的方法
+                // 元件得到特別的屬性 或 狀態 或 生命週期 執行的方法
+                // withRouter is api 
+                export default withRouter(Product)
+                ->  會得到 以下 3 種 方法（一般是沒有的）
+                    history: {length: 50, action: "POP", location: {…}, createHref: ƒ, push: ƒ, …}
+                    location: {pathname: "/prodcut", search: "", hash: "", state: null, key: "3a9qrv"}
+                    match: {path: "/prodcut", url: "/prodcut", isExact: true, params: {…}}
+                    staticContext: undefined
+                    __proto__: Object
+                    
+                3. 利用props值中的 "match" 屬性來獲取 "params"
+                注意：params必定是字串類型
+
+                function Product(props) {
+                return (
+                    <>
+                    <h1>產品頁面</h1>
+                    <h2>目前的產品編號是(從網址得上得到)：{props.match.params.id}</h2>
+                    </>
+                )
+                }
+        -> 
+        -> 
+7. withRouter 是一個 高階元件
+    -> 才能使用 以下 3 種 方法
+        -> history
+        -> location
+        -> match
+            -> 利用props值中的 "match" 屬性來獲取 "params"
+    withRouter 高階元件 可以使用在
+        -> 函式元件 function xxx()
+        -> 類別元件 class xxx extends React.component()
+        -> 
+8. 
+9. 
+10. 

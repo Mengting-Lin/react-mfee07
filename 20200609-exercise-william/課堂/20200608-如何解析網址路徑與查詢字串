@@ -1,0 +1,19 @@
+React Router - 如何解析網址路徑與查詢字串 
+1.localhost:3000/product/?id=10&ip=101
+    -> 最常用於 查詢 功能
+        -> f12
+            -> location
+                -> search 
+                *** -> 但要記住，必須使用 export default withRouter(Product) 才會出現 3大屬性
+    -> js 解析
+    https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
+        -> URLSearchParams
+            ->  var paramsString = "q=URLUtils.searchParams&topic=api";
+                var searchParams = new URLSearchParams(paramsString);
+                searchParams.has("topic") === true; // true
+                searchParams.get("topic") === "api"; // true
+                
+2.
+3.
+4.
+5.

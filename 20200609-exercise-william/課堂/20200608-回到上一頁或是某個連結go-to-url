@@ -1,0 +1,10 @@
+類別型元件
+
+this.props.history.push('/foo')
+函式型元件
+
+props.history.push('/foo')
+
+使用 history 必须使用 
+    -> import { withRouter } from 'react-router-dom'
+    -> export default withRouter(XXXXX);

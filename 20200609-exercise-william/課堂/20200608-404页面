@@ -1,0 +1,23 @@
+注意：找不到的路由要放在Switch裡最後一個
+
+使用萬用字元(*)
+
+<Switch>
+      <Route exact path='/' component={HomePage} />
+      <Route path="*" component={NotFoundPage} />
+</Switch>
+其它方式：
+
+網址不變
+
+<Switch>
+    <Route exact path="/users" component={MyComponent} />
+    <Route component={GenericNotFound} />
+</Switch>
+跳轉到其它頁面：
+
+<Switch>
+    <Route path="/users" component={MyComponent} />
+    <Route path="/404" component={GenericNotFound} />
+    <Redirect to="/404" />
+</Switch>

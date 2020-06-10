@@ -1,0 +1,18 @@
+const display = (
+    <>
+    {{ 'a': 1 }} ==> 这样 会报错，因为 JSX 语法只接受整列 
+    <ul className="list-group">
+        {mycartDisplay.map((value, index) => {
+            return (
+                <li className="list-group-item" key={value.id}>
+                產品：{value.name}/數量：{value.amount} /單價：{value.price}/
+                {'   '}
+                小計：{value.amount * value.price}
+                </li>
+            )
+        })}
+    </ul>
+    {/* 判斷mycartDisplay是否在初次render的階段 */}
+    {mycartDisplay.length > 0 ? <h3>總價：{sum(mycartDisplay)}</h3> : ''}
+    </>
+)

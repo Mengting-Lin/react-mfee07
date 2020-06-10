@@ -1,0 +1,41 @@
+https://stackoverflow.com/questions/53464595/how-to-use-componentwillmount-in-react-hooks
+
+你不能使用任何現有的生命週期方法（componentDidMount，componentDidUpdate，componentWillUnmount在鉤等）。它們只能在類組件中使用。而且，使用Hooks只能在功能組件中使用。下面的行來自React文檔：
+
+如果你熟悉陣營類生命週期方法，你能想到的useEffect鉤。因為componentDidMount，componentDidUpdate和componentWillUnmount結合。
+
+建議是，您可以從功能組件中的類組件模仿這些生命週期方法。
+
+componentDidMount安裝組件時，內部代碼運行一次。useEffect鉤子等效於此行為是
+
+  useEffect(() => {
+    // Your code here
+  }, []);
+
+注意這裡的第二個參數（空數組）。這將只運行一次。
+
+如果沒有第二個參數，useEffect則會在每次渲染組件時調用該鉤子，這很危險。
+
+  useEffect(() => {
+    // Your code here
+  });
+
+componentWillUnmount用於清理（例如刪除事件偵聽器，取消計時器等）。假設您要在其中添加事件監聽器，componentDidMount並按componentWillUnmount如下所示將其刪除。
+
+componentDidMount() {
+  window.addEventListener('mousemove', () => {})
+}
+
+componentWillUnmount() {
+  window.removeEventListener('mousemove', () => {})
+}
+相當於上述代碼的鉤子如下
+
+useEffect(() => {
+  window.addEventListener('mousemove', () => {});
+
+  // returned function will be called on component unmount 
+  return () => {
+    window.removeEventListener('mousemove', () => {})
+  }
+}, [])
