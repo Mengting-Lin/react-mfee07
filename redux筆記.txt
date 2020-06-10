@@ -1,0 +1,76 @@
+【index.js】
+
+import store from './redux/store'
+
+function render(){
+    ReactDOM.render(<App store={store}/>, document.getElementById('root'))
+}
+
+// 初始化渲染
+render()
+
+// 調閱監聽(store中的狀態變了，就會自動調用進行重繪)
+store.subscribe(render)
+
+
+
+【app.js】
+
+import {increment, decrement} from './actions'                      import * as actions from './actions'
+
+export default class App extends Component {
+    increment = () => {
+        const number = this.select.value * 1
+        this.props.store.dispatch(actions.increment(number))        // {type:INCREMENT, data:number}
+    }
+    decrement = () => {
+        const number = this.select.value * 1
+        this.props.store.dispatch(actions.decrement(number))        // {type:DECREMENT, data:number}
+    }
+this.props.store.getState()
+
+
+
+【reducers.js】
+
+import {INCREMENT, DECREMENT} from './action-type'
+
+export function counter(state=0, action) {
+    console.log('counter()', state, action)
+    switch (action.type) {
+        case INCREMENT:
+            return state + action.data
+        case DECREMENT:
+            return state - action.data
+        default:
+            return state
+    }
+}
+
+
+
+【store.js】
+
+import {createStore} from 'redux'
+import {counter} from './redux/reducers'
+
+const store = createStore(counter) //調用reducer(counter函數)得到初始值0
+
+export default store
+
+
+
+【action.js】
+
+import {INCREMENT, DECREMENT} from './action-type'
+
+//包含所有action creator
+export const incrementCreator = (number) => ({type:INCREMENT, data: number})
+export const decrementCreator = (number) => ({type:DECREMENT, data: number})
+
+
+
+【action-type.js】
+
+export const INCREMENT = 'INCREMENT'
+export const DECREMENT = 'DECREMENT'
