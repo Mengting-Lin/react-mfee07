@@ -3,6 +3,7 @@ https://github.com/eyesofkids/201/issues/37
 
 redux
 https://github.com/eyesofkids/201/blob/master/data/0615/redux_ch1_zhTW.key.pdf
+https://noootown.gitbooks.io/deeperience-react-native-boilerplate/content/Redux/MapStateToProps%20&%20MapDispatchToProps%20&%20Connect.html
 
 【index.js】
 
