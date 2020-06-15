@@ -1,3 +1,9 @@
+redux開發所需套件安裝
+https://github.com/eyesofkids/201/issues/37
+
+redux
+https://github.com/eyesofkids/201/blob/master/data/0615/redux_ch1_zhTW.key.pdf
+
 【index.js】
 
 import {Provider} from 'react-redux'

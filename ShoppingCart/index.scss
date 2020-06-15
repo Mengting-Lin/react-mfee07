@@ -1,0 +1,15 @@
+@import '../shoppingCart';
+
+// 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
+.btn-primary {
+    color: lightblue;
+    background-color: lightblue;
+    border-color: lightblue;
+}
+
+// 在scss檔中一樣可使用一般css
+// code {
+//     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+//       monospace;
+//   }
+  
